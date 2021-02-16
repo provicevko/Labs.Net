@@ -14,6 +14,9 @@ namespace Lab1.Chips
         public int Id { get; } = ++_idCounter;
         public string Name { get; }
 
+        public int XCoord { get; protected set; }
+        public int YCoord { get; protected set; }
+
         private static int _idCounter;
         public Chip(string name)
         {
@@ -22,6 +25,6 @@ namespace Lab1.Chips
         /// <summary>
         /// This method moves a chip on the realization specifics
         /// </summary>
-        public abstract void Move();
+        public abstract void Move(int x, int y);
     }
 }

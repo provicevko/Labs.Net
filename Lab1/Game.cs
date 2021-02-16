@@ -13,6 +13,7 @@ namespace Lab1
 {
     public class Game : IGame
     {
+        public int Id { get; } = ++_gameCounter;
         public string Name { get; init; }
 
         private static int _gameCounter;
@@ -27,9 +28,6 @@ namespace Lab1
             _gameSpace = factory.CreateSpace(width, height);
         }
 
-        public int id { get; } = ++_gameCounter;
-
-
         public void StartGame()
         {
             // Start game process
@@ -43,6 +41,59 @@ namespace Lab1
         public void RestartGame()
         {
             // Restart game process
+        }
+
+        public Chip GetChipWithId(int id)
+        {
+            if (_chips == null || _chips.Count <= 0)
+                throw new InvalidOperationException();
+
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id));
+
+            return _chips.SingleOrDefault(c => c.Id == id);
+        }
+
+        public IEnumerable<Chip> GetChips()
+        {
+            if (_chips == null || _chips.Count <= 0)
+                throw new InvalidOperationException();
+
+            return _chips;
+        }
+
+        public int[] GetChipsIndexes()
+        {
+            if (_chips == null || _chips.Count <= 0)
+                throw new InvalidOperationException();
+
+            return _chips.Select(c => c.Id).ToArray();
+        }
+
+        private void MoveChip(Chip chip, int x, int y)
+        {
+            if (!IsValidateCoords(x, y))
+                throw new ArgumentOutOfRangeException("CoordsValidation");
+            
+            chip.Move(x,y);
+        }
+
+        public void MoveChip(int chipId, int x, int y)
+        {
+            if (chipId <= 0)
+                throw new ArgumentOutOfRangeException(nameof(chipId));
+
+            var chip = GetChipWithId(chipId);
+            MoveChip(chip, x, y);
+        }
+
+        /// <summary>
+        /// This method validates input coords
+        /// </summary>
+        private static bool IsValidateCoords(int x, int y)
+        {
+            // Here validation
+            return x >= 1 && x < 7 && y >= 1 && y < 7;
         }
     }
 }

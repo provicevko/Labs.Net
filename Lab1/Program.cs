@@ -8,6 +8,7 @@ namespace Lab1
         static void Main(string[] args)
         {
             Game testGame = new Game(new BusinessMonopolyFactory());
+            testGame.StartGame();
         }
 
         

@@ -8,7 +8,7 @@ namespace Lab1
 {
     interface IGame
     {
-        public int id { get; }
+        public int Id { get; }
         public void StartGame();
         public void EndGame();
         public void RestartGame();
