@@ -17,9 +17,11 @@ namespace Lab1Builder
 
         public record Rules { } // RECORD OF RULES
 
-        public Rules rules = new Rules(); // An instance that encapsulate a rules with one-initialize [init accessors] 
+        public Rules rules = new(); // An instance that encapsulate a rules with one-initialize [init accessors] 
 
-        public int Id { get; }
+        public int Id { get; } = ++_gameCounter;
+
+        private static int _gameCounter;
         public void StartGame()
         {
         }
@@ -43,7 +45,7 @@ namespace Lab1Builder
             return Chips.SingleOrDefault(c => c.Id == id);
         }
 
-        private void MoveChip(Chip chip, int x, int y)
+        public void MoveChip(Chip chip, int x, int y)
         {
             if (!IsValidateCoords(x, y))
                 throw new ArgumentOutOfRangeException("CoordsValidation");
