@@ -12,7 +12,7 @@ namespace Lab1.Chips
         {
         }
 
-        public override void Move(int x, int y)
+        internal override void Move(int x, int y)
         {
             // Move specification
         }

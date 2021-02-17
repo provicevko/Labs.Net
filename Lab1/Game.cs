@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,30 +18,38 @@ namespace Lab1
         public string Name { get; init; }
 
         private static int _gameCounter;
-        private List<Chip> _chips;
-        private GameSpace _gameSpace;
+        private readonly List<Chip> _chips;
+        private readonly GameSpace _gameSpace;
 
-        private IDirector _director = Director.GetInstance();
+        private readonly IDirector _director = Director.GetInstance();
+
+        public record Rules { } // RECORD OF RULES
+
+        public Rules rules = new Rules(); // An instance that encapsulate a rules with one-initialize [init accessors] 
         public Game(GameFactory factory)
         {
             _chips = factory.CreateChips();
             var (width, height) = _director.SetSpaceSizes();
             _gameSpace = factory.CreateSpace(width, height);
+            _director.SetRules(rules);
         }
 
         public void StartGame()
         {
             // Start game process
+            _director.StartProcess(this);
         }
 
         public void EndGame()
         {
             // Finish game process
+            _director.StopProcess(this);
         }
 
         public void RestartGame()
         {
             // Restart game process
+            _director.RestartProcess(this);
         }
 
         public Chip GetChipWithId(int id)
@@ -54,12 +63,12 @@ namespace Lab1
             return _chips.SingleOrDefault(c => c.Id == id);
         }
 
-        public IEnumerable<Chip> GetChips()
+        public ReadOnlyCollection<Chip> GetChips()
         {
             if (_chips == null || _chips.Count <= 0)
                 throw new InvalidOperationException();
 
-            return _chips;
+            return _chips.AsReadOnly();
         }
 
         public int[] GetChipsIndexes()

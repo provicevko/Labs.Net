@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab1
 {
-    interface IGame
+    public interface IGame
     {
         public int Id { get; }
         public void StartGame();

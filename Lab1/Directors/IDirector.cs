@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lab1.Directors
 {
-    public interface IDirector
+    internal interface IDirector
     {
-        public void SetRules();
+        public void SetRules(Game.Rules rules);
         public (int, int) SetSpaceSizes();
+
+        public void StartProcess(Game game);
+        public void StopProcess(Game game);
+        public void RestartProcess(Game game);
     }
 }

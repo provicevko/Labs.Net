@@ -25,6 +25,6 @@ namespace Lab1.Chips
         /// <summary>
         /// This method moves a chip on the realization specifics
         /// </summary>
-        public abstract void Move(int x, int y);
+        internal abstract void Move(int x, int y);
     }
 }
