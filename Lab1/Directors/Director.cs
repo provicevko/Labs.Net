@@ -29,12 +29,12 @@ namespace Lab1.Directors
 
         public void StopProcess(Game game)
         {
-            // Here the director starts game process
+            // Here the director stops game process
         }
 
         public void RestartProcess(Game game)
         {
-            // Here the director starts game process
+            // Here the director restarts game process
         }
     }
 }
