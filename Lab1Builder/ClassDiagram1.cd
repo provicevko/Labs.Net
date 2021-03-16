@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Lab1Builder.Chips.BlueChip" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chips\BlueChip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.Chips.Chip" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAQAAAIAAAAAAAAAAAAQAQAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chips\Chip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.Chips.GreenChip" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chips\GreenChip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.Chips.RedChip" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chips\RedChip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.Chips.YellowChip" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Chips\YellowChip.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.Directors.Director" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAKAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Directors\Director.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Lab1Builder.GameBuilders.BusinessMonopolyBuilder" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameBuilders\BusinessMonopolyBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.GameBuilders.FootballMonopolyBuilder" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameBuilders\FootballMonopolyBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.GameBuilders.GameBuilder" Collapsed="true">
+    <Position X="4.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAACAAAAAgAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>GameBuilders\GameBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.GameSpecs.Field" Collapsed="true">
+    <Position X="14.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameSpecs\Field.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Lab1Builder.Game" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAIAAIAAABAAABAAAAAgAAAAAAAAAAAAQAAQgAA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Lab1Builder.Program" Collapsed="true">
+    <Position X="14.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Lab1Builder.Directors.IDirector" Collapsed="true">
+    <Position X="12.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Directors\IDirector.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Lab1Builder.IGame" Collapsed="true">
+    <Position X="14.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAIAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAQgAA=</HashCode>
+      <FileName>IGame.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
