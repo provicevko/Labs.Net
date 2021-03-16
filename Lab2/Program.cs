@@ -17,7 +17,7 @@ namespace Lab2
             operatorPlus.Add(operatorMultiply, new Variable("x"));
 
             GetTree(operatorPlus);
-        }
+        } 
         private static void GetTree(Operator opOperator)
         {
             Console.WriteLine($"(operator {opOperator.Value})");
