@@ -13,5 +13,10 @@ namespace Lab2.Components
             if (string.IsNullOrEmpty(Value))
                 throw new ArgumentNullException(nameof(Value));
         }
+
+        public override StringBuilder ExpressionBuild()
+        {
+            return new(Value);
+        }
     }
 }

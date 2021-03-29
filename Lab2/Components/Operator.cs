@@ -39,6 +39,17 @@ namespace Lab2.Components
             _childrens.Add(rightComponent);
         }
 
+        public override StringBuilder ExpressionBuild()
+        {
+            StringBuilder str = new StringBuilder("(");
+
+            str.Append(_childrens.ElementAt(0).ExpressionBuild());
+            str.Append(Value);
+            str.Append(_childrens.ElementAt(1).ExpressionBuild());
+
+            return str.Append(")");
+        }
+
         private void ValidateInput(params Component[] components)
         {
             foreach (var component in components)

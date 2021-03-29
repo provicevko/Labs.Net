@@ -24,5 +24,10 @@ namespace Lab2.Components
         {
             throw new NotSupportedException();
         }
+
+        public override StringBuilder ExpressionBuild()
+        {
+            return new(Value.ToString());
+        }
     }
 }

@@ -10,5 +10,7 @@ namespace Lab2.Components
     {
         public abstract void Add(Component leftComponent, Component rightComponent);
         public abstract void Remove(Component leftComponent, Component rightComponent);
+
+        public abstract StringBuilder ExpressionBuild();
     }
 }
