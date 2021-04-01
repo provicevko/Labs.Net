@@ -17,9 +17,9 @@ namespace Lab2
             operatorMultiply.Add(operatorSubstract, new Constant(546));
             operatorPlus.Add(operatorMultiply, new Variable("x"));
 
-            StringBuilder str = operatorPlus.ExpressionBuild();
-            Console.WriteLine(str);
-            
+            Console.WriteLine(operatorSubstract.ExpressionBuild());
+            Console.WriteLine(operatorMultiply.ExpressionBuild());
+            Console.WriteLine(operatorPlus.ExpressionBuild());
         }
 
 
