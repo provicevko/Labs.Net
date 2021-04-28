@@ -14,7 +14,14 @@ namespace Lab3
     {
         private readonly T[] _array;
         public ReadOnlyCollection<T> ArrayValues => Array.AsReadOnly(_array);
-        public ISortAlgorithm SortAlgorithm { get; set; } = new QuickSort();
+
+        private ISortAlgorithm _sortAlgorithm = new QuickSort();
+        public ISortAlgorithm SortAlgorithm
+        {
+            get => _sortAlgorithm;
+            set => _sortAlgorithm = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
         public ArrayContext(T[] array)
         {
             if (!TypeHelper.IsNumericType(typeof(T)))
@@ -28,14 +35,11 @@ namespace Lab3
 
         public ArrayContext(T[] array, ISortAlgorithm sortAlgorithm) : this(array)
         {
-            SortAlgorithm = sortAlgorithm;
+            SortAlgorithm = sortAlgorithm ?? throw new ArgumentNullException(nameof(sortAlgorithm));
         }
 
         public T[] Sort()
         {
-            if (SortAlgorithm == null)
-                throw new InvalidOperationException();
-
             return SortAlgorithm.Sort(_array);
         }
 

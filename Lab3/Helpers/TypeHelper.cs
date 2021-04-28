@@ -29,12 +29,6 @@ namespace Lab3.Helpers
                 case TypeCode.UInt32:
                 case TypeCode.UInt64:
                     return true;
-                case TypeCode.Object:
-                    if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
-                    {
-                        return IsNumericType(Nullable.GetUnderlyingType(type));
-                    }
-                    return false;
             }
             return false;
         }
