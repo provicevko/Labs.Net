@@ -15,6 +15,14 @@ namespace Lab3
             Console.WriteLine();
             var sortedDoubleArray = quickSort.Sort(doubleArr);
             OutputArray(sortedDoubleArray);
+            Console.WriteLine();
+
+            InsertionSort insertionSort = new InsertionSort();
+            var sortedIntArray2 = insertionSort.Sort(intArr);
+            OutputArray(sortedIntArray);
+            Console.WriteLine();
+            var sortedDoubleArray2 = insertionSort.Sort(doubleArr);
+            OutputArray(sortedDoubleArray);
         }
 
         private static void OutputArray<T>(T[] arr)
