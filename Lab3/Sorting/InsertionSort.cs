@@ -11,6 +11,8 @@ namespace Lab3.Sorting
         public override T[] Sort<T>(T[] array)
         {
             ValidateNumericType(typeof(T));
+            if (array == null)
+                throw new ArgumentNullException(nameof(array));
 
             for (var i = 1; i < array.Length; i++)
             {

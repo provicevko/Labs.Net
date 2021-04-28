@@ -19,6 +19,10 @@ namespace Lab3
         {
             if (!TypeHelper.IsNumericType(typeof(T)))
                 throw new InvalidOperationException("T is not numeric type");
+
+            if (array == null || array.Length <= 0)
+                throw new ArgumentException("Array is null or empty");
+
             _array = array;
         }
 
@@ -33,6 +37,16 @@ namespace Lab3
                 throw new InvalidOperationException();
 
             return SortAlgorithm.Sort(_array);
+        }
+
+        public T MaxValue()
+        {
+            return _array.Max();
+        }
+
+        public T MinValue()
+        {
+            return _array.Min();
         }
     }
 }

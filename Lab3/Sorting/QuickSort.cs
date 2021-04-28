@@ -42,6 +42,9 @@ namespace Lab3.Sorting
         public override T[] Sort<T>(T[] array)
         {
             ValidateNumericType(typeof(T));
+            if (array == null)
+                throw new ArgumentNullException(nameof(array));
+
             return Sort(array, 0, array.Length - 1);
         }
     }

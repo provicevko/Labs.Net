@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using Lab3.Sorting;
 
 namespace Lab3
@@ -16,20 +17,24 @@ namespace Lab3
             ArrayContext<int> intArrayContext = new(intArr);
             ArrayContext<double> doubleArrayContext = new(doubleArr);
 
-            Output("INT[], QuickSort", intArrayContext);
+            Console.WriteLine("Max value: " + intArrayContext.MaxValue());
+            Console.WriteLine("Min value: " + intArrayContext.MinValue());
+            OutputArrayContext("INT[], QuickSort", intArrayContext);
             intArrayContext.SortAlgorithm = new InsertionSort();
 
-            Output("INT[], InsertionSort", intArrayContext);
+            OutputArrayContext("INT[], InsertionSort", intArrayContext);
             Console.WriteLine();
 
-            Output("DOUBLE[], QuickSort", doubleArrayContext);
+            Console.WriteLine("Max value: " + doubleArrayContext.MaxValue());
+            Console.WriteLine("Min value: " + doubleArrayContext.MinValue());
+            OutputArrayContext("DOUBLE[], QuickSort", doubleArrayContext);
             doubleArrayContext.SortAlgorithm = new InsertionSort();
 
-            Output("DOUBLE[], InsertionSort", doubleArrayContext);
+            OutputArrayContext("DOUBLE[], InsertionSort", doubleArrayContext);
             Console.WriteLine();
         }
 
-        private static void Output<T>(string text, ArrayContext<T> arrayContext) where T : IComparable
+        private static void OutputArrayContext<T>(string text, ArrayContext<T> arrayContext) where T : IComparable
         {
             Stopwatch stopwatch = new Stopwatch();
 
