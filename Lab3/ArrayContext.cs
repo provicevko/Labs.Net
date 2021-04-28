@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -9,10 +10,11 @@ using Lab3.Sorting;
 
 namespace Lab3
 {
-    public class ArrayContext<T>
+    public class ArrayContext<T> where T : IComparable
     {
-        private T[] _array;
-        public ISortAlgorithm SortAlgorithm { get; set; }
+        private readonly T[] _array;
+        public ReadOnlyCollection<T> ArrayValues => Array.AsReadOnly(_array);
+        public ISortAlgorithm SortAlgorithm { get; set; } = new QuickSort();
         public ArrayContext(T[] array)
         {
             if (!TypeHelper.IsNumericType(typeof(T)))
@@ -27,9 +29,10 @@ namespace Lab3
 
         public T[] Sort()
         {
-            throw new NotImplementedException();
-        }
+            if (SortAlgorithm == null)
+                throw new InvalidOperationException();
 
-        
+            return SortAlgorithm.Sort(_array);
+        }
     }
 }
