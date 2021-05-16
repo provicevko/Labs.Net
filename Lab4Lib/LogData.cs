@@ -8,7 +8,7 @@ namespace Lab4Lib
 {
     public class LogData
     {
-        public LogData(long readerId, long bookInstanceId, int countOfDays)
+        internal LogData(long readerId, long bookInstanceId, int countOfDays)
         {
             ReaderId = readerId;
             BookInstanceId = bookInstanceId;

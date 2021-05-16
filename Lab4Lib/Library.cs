@@ -10,21 +10,16 @@ namespace Lab4Lib
         private readonly List<BookInstance> _bookInstances = new();
         private readonly List<Reader> _readers = new();
         private readonly List<LogData> _logs = new();
-        public Library()
-        {
-            
-        }
-
+        public IReadOnlyCollection<LogData> LogDatas => _logs.AsReadOnly();
+        public IReadOnlyCollection<Reader> Readers => _readers.AsReadOnly();
+        public IReadOnlyCollection<BookInstance> BokBookInstances => _bookInstances.AsReadOnly();
         public void RegisterReader(Reader reader)
         {
-            if (reader == null)
-                throw new ArgumentNullException(nameof(reader));
-
             if(!IsReaderInLibrary(reader))
                 _readers.Add(reader);
         }
 
-        private bool IsReaderInLibrary(Reader reader) => _readers.Any(x=>x.Id == reader.Id);
+        private bool IsReaderInLibrary(Reader reader) => reader != null ? _readers.Any(x=>x.Id == reader.Id) : throw new InvalidOperationException();
 
         public Book FindBook(string name, string author) => GetBookInstanceFromLibrary(name, author)?.Book;
 
@@ -39,11 +34,12 @@ namespace Lab4Lib
             {
                 bookInstance.Amount--;
                 _logs.Add(new(reader.Id, bookInstance.Id, bookOrder.CountOfDays));
+                return bookInstance.Book;
             }
 
-            return bookInstance?.Book;
+            return null;
         }
-        private BookInstance GetBookInstanceFromLibrary(string name, string author) => _bookInstances.FirstOrDefault(d=>d.Book.Name == name && d.Book.Author == author);
+        public BookInstance GetBookInstanceFromLibrary(string name, string author) => _bookInstances.FirstOrDefault(d=>d.Book.Name == name && d.Book.Author == author);
 
         private bool IsAvailableBook(BookInstance bookInstance) => bookInstance?.Amount >= 1;
         
@@ -58,6 +54,14 @@ namespace Lab4Lib
                 throw new InvalidOperationException();
 
             _bookInstances.Add(new(book, depositPrice, priceADay));
+        }
+
+        public IEnumerable<LogData> GetLogDataByReader(Reader reader)
+        {
+            if (!IsReaderInLibrary(reader))
+                throw new InvalidOperationException();
+
+            return _logs.Where(x => x.ReaderId == reader.Id);
         }
     }
 }

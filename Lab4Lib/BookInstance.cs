@@ -8,7 +8,7 @@ namespace Lab4Lib
     {
         private static long _idCounter;
         public readonly Book Book;
-        public BookInstance(Book book, decimal depositPrice, decimal priceADay)
+        internal BookInstance(Book book, decimal depositPrice, decimal priceADay)
         {
             Book = book ?? throw new ArgumentNullException(nameof(book));
             DepositPrice = depositPrice;
