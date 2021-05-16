@@ -25,7 +25,9 @@ namespace Lab4Lib
         }
 
         private bool IsReaderInLibrary(Reader reader) => _readers.Any(x=>x.Id == reader.Id);
-        
+
+        public Book FindBook(string name, string author) => GetBookInstanceFromLibrary(name, author)?.Book;
+
         public Book GetBookFromLibrary(Reader reader, BookOrder bookOrder)
         {
             if (!IsReaderInLibrary(reader))
