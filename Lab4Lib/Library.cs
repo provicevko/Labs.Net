@@ -24,11 +24,8 @@ namespace Lab4Lib
                 _readers.Add(reader);
         }
 
-        private bool IsReaderInLibrary(Reader reader)
-        {
-            return _readers.Any(x=>x.Id == reader.Id);
-        }
-
+        private bool IsReaderInLibrary(Reader reader) => _readers.Any(x=>x.Id == reader.Id);
+        
         public Book GetBookFromLibrary(Reader reader, BookOrder bookOrder)
         {
             if (!IsReaderInLibrary(reader))
@@ -44,18 +41,12 @@ namespace Lab4Lib
 
             return bookInstance?.Book;
         }
-        private BookInstance GetBookInstanceFromLibrary(string name, string author)
-        {
-            return _bookInstances.FirstOrDefault(d=>d.Book.Name == name && d.Book.Author == author);
-        }
+        private BookInstance GetBookInstanceFromLibrary(string name, string author) => _bookInstances.FirstOrDefault(d=>d.Book.Name == name && d.Book.Author == author);
 
         private bool IsAvailableBook(BookInstance bookInstance) => bookInstance?.Amount >= 1;
         
-        private bool IsExistBook(string name, string author)
-        {
-            return _bookInstances.Any(d=>d.Book.Name == name && d.Book.Author == author);
-        }
-
+        private bool IsExistBook(string name, string author) => _bookInstances.Any(d=>d.Book.Name == name && d.Book.Author == author);
+        
         public void AddBookIntoLibrary(Book book, decimal depositPrice, decimal priceADay)
         {
             if (book == null)
