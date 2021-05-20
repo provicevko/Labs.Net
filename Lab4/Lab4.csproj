@@ -9,8 +9,4 @@
     <ProjectReference Include="..\Lab4Lib\Lab4Lib.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
-  </ItemGroup>
-
 </Project>

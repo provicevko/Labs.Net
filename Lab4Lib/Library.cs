@@ -10,16 +10,15 @@ namespace Lab4Lib
         private readonly List<BookInstance> _bookInstances = new();
         private readonly List<Reader> _readers = new();
         private readonly List<LogData> _logs = new();
-        public IReadOnlyCollection<LogData> LogDatas => _logs.AsReadOnly();
+        public IReadOnlyCollection<LogData> LogData => _logs.AsReadOnly();
         public IReadOnlyCollection<Reader> Readers => _readers.AsReadOnly();
-        public IReadOnlyCollection<BookInstance> BokBookInstances => _bookInstances.AsReadOnly();
+        public IReadOnlyCollection<BookInstance> BookInstances => _bookInstances.AsReadOnly();
         public void RegisterReader(Reader reader)
         {
-            if(!IsReaderInLibrary(reader))
+            if (!IsReaderInLibrary(reader))
                 _readers.Add(reader);
         }
-
-        private bool IsReaderInLibrary(Reader reader) => reader != null ? _readers.Any(x=>x.Id == reader.Id) : throw new InvalidOperationException();
+        public bool IsReaderInLibrary(Reader reader) => reader != null ? _readers.Any(x => x.Id == reader.Id) : throw new InvalidOperationException();
 
         public Book FindBook(string name, string author) => GetBookInstanceFromLibrary(name, author)?.Book;
 
@@ -39,12 +38,12 @@ namespace Lab4Lib
 
             return null;
         }
-        public BookInstance GetBookInstanceFromLibrary(string name, string author) => _bookInstances.FirstOrDefault(d=>d.Book.Name == name && d.Book.Author == author);
+        public BookInstance GetBookInstanceFromLibrary(string name, string author) => _bookInstances.FirstOrDefault(d => d.Book.Name == name && d.Book.Author == author);
 
-        private bool IsAvailableBook(BookInstance bookInstance) => bookInstance?.Amount >= 1;
-        
-        private bool IsExistBook(string name, string author) => _bookInstances.Any(d=>d.Book.Name == name && d.Book.Author == author);
-        
+        public bool IsAvailableBook(BookInstance bookInstance) => bookInstance?.Amount >= 1;
+
+        public bool IsExistBook(string name, string author) => _bookInstances.Any(d => d.Book.Name == name && d.Book.Author == author);
+
         public void AddBookIntoLibrary(Book book, decimal depositPrice, decimal priceADay)
         {
             if (book == null)
@@ -63,5 +62,8 @@ namespace Lab4Lib
 
             return _logs.Where(x => x.ReaderId == reader.Id);
         }
+
+        public Reader GetReader(short key) => _readers.FirstOrDefault(x => x.Id == key);
+
     }
 }
