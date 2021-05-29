@@ -231,20 +231,6 @@ namespace Lab4.Infrastructure.Extensions
         }
 
         /// <summary>
-        /// This method gets books by author
-        /// </summary>
-        /// <param name="library"></param>
-        /// <param name="genre"></param>
-        /// <returns></returns>
-        public static IEnumerable<Book> GetBooksByAuthor(this Library library, string genre)
-        {
-            if (library == null)
-                throw new ArgumentNullException(nameof(library));
-
-            return library.BookInstances.Where(x => x.Book.Genre == genre).Select(x => x.Book);
-        }
-
-        /// <summary>
         /// This method gets books which except book with genre name 
         /// </summary>
         /// <param name="library"></param>
